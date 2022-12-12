@@ -54,7 +54,7 @@ if __name__ == '__main__':
               "for deep learning, ensure that the drivers are properly installed, and that your "
               "CUDA version matches your PyTorch installation. CPU-only inference is currently "
               "not supported.", file=sys.stderr)
-        quit(-1) #он видит что у меня нет видюхи которая поддерживает Cuda и выходит (quit)
+        quit(-1) 
 
     device_id = torch.cuda.current_device()
     gpu_properties = torch.cuda.get_device_properties(device_id)
@@ -67,10 +67,6 @@ if __name__ == '__main__':
            gpu_properties.minor,
            gpu_properties.total_memory / 1e9))
     
-    
-    #print("_____________")
-    #print(encoder)
-    #print(vocoder)
     ## Load the models one by one.
     print("Preparing the encoder, the synthesizer and the vocoder...")
     encoder.load_model(args.enc_model_fpath)
